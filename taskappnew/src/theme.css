@@ -1,0 +1,30 @@
+:root {
+   --bg-gradient: linear-gradient(135deg, #fdf6e3, #fefae0, #ffffff);
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --text-color: #1f2937;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --accent-color: #4f46e5;
+  --sub-accent: #6366f1;
+}
+
+body.dark-mode {
+  --bg-gradient: linear-gradient(135deg, #0f172a, #1e293b, #334155);
+  --card-bg: rgba(30, 41, 59, 0.9);
+  --text-color: #f1f5f9;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --accent-color: #8b5cf6;
+  --sub-accent: #a78bfa;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.4s, color 0.4s;
+}
+
+.card {
+  background: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  transition: background 0.3s, color 0.3s;
+}
