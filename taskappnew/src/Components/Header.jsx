@@ -24,7 +24,7 @@ const Header = () => {
 
   const getUser = async () => {
     try {
-      const res = await axios.get("http://localhost:7800/api/users/getOne", {
+      const res = await axios.get("https://task-management-b4ua.onrender.com/api/users/getOne", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setGetUser(res.data);

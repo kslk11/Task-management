@@ -75,7 +75,7 @@ const UserTaskBoard = () => {
                 return;
             }
 
-            const response = await axios.get('http://localhost:7800/api/users/getAll', {
+            const response = await axios.get('https://task-management-b4ua.onrender.com/api/users/getAll', {
                 headers: { Authorization: `Bearer ${token}` }
             });
 
@@ -98,7 +98,7 @@ const UserTaskBoard = () => {
         try {
             const token = localStorage.getItem('token');
 
-            const response = await axios.get('http://localhost:7800/api/task/assignedbyme', {
+            const response = await axios.get('https://task-management-b4ua.onrender.com/api/task/assignedbyme', {
                 headers: { Authorization: `Bearer ${token}` }
             });
 
@@ -141,7 +141,7 @@ const UserTaskBoard = () => {
     const fetchSubtasks = async (taskId) => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get(`http://localhost:7800/api/subtask/${taskId}`, {
+            const response = await axios.get(`https://task-management-b4ua.onrender.com/api/subtask/${taskId}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
 
@@ -209,7 +209,7 @@ const UserTaskBoard = () => {
 
                 try {
                     const token = localStorage.getItem('token');
-                    await axios.put('http://localhost:7800/api/task/updateAssignee',
+                    await axios.put('https://task-management-b4ua.onrender.com/api/task/updateAssignee',
                         {
                             taskId: movedTask._id,
                             newAssigneeId: destUserId
@@ -246,7 +246,7 @@ const UserTaskBoard = () => {
 
                 try {
                     const token = localStorage.getItem('token');
-                    await axios.put('http://localhost:7800/api/subtask/updateParent',
+                    await axios.put('https://task-management-b4ua.onrender.com/api/subtask/updateParent',
                         {
                             subtaskId: movedSubtask._id,
                             newParentId: destTaskId
@@ -323,7 +323,7 @@ const UserTaskBoard = () => {
                 return;
             }
 
-            await axios.post('http://localhost:7800/api/task/newTask', taskData, {
+            await axios.post('https://task-management-b4ua.onrender.com/api/task/newTask', taskData, {
                 headers: { Authorization: `Bearer ${token}` }
             });
 
@@ -366,7 +366,7 @@ const UserTaskBoard = () => {
                 return;
             }
 
-            await axios.post('http://localhost:7800/api/subtask/add', subtaskData, {
+            await axios.post('https://task-management-b4ua.onrender.com/api/subtask/add', subtaskData, {
                 headers: { Authorization: `Bearer ${token}` }
             });
 
@@ -386,7 +386,7 @@ const UserTaskBoard = () => {
             const token = localStorage.getItem('token');
             const newStatus = currentStatus === 'Pending' ? 'Complete' : 'Pending';
 
-            await axios.post('http://localhost:7800/api/task/updateS',
+            await axios.post('https://task-management-b4ua.onrender.com/api/task/updateS',
                 { taskId, status: newStatus },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -404,7 +404,7 @@ const UserTaskBoard = () => {
             const token = localStorage.getItem('token');
             const newStatus = currentStatus === 'Pending' ? 'Complete' : 'Pending';
 
-            await axios.put(`http://localhost:7800/api/subtask/update/${subtaskId}`,
+            await axios.put(`https://task-management-b4ua.onrender.com/api/subtask/update/${subtaskId}`,
                 { status: newStatus },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -436,7 +436,7 @@ const UserTaskBoard = () => {
                 return;
             }
 
-            await axios.put(`http://localhost:7800/api/task/taskUpdate/${taskId}`,
+            await axios.put(`https://task-management-b4ua.onrender.com/api/task/taskUpdate/${taskId}`,
                 {
                     task: editingTask.task,
                     deadline: editingTask.deadline
@@ -462,7 +462,7 @@ const UserTaskBoard = () => {
         try {
             const token = localStorage.getItem('token');
 
-            await axios.delete(`http://localhost:7800/api/task/delete/${taskId}`, {
+            await axios.delete(`https://task-management-b4ua.onrender.com/api/task/delete/${taskId}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
 
@@ -494,7 +494,7 @@ const UserTaskBoard = () => {
                 return;
             }
 
-            await axios.put(`http://localhost:7800/api/subtask/update/${subtaskId}`,
+            await axios.put(`https://task-management-b4ua.onrender.com/api/subtask/update/${subtaskId}`,
                 {
                     name: editingSubtask.name,
                     deadline: editingSubtask.deadline
@@ -520,7 +520,7 @@ const UserTaskBoard = () => {
         try {
             const token = localStorage.getItem('token');
 
-            await axios.delete(`http://localhost:7800/api/subtask/delete/${subtaskId}`, {
+            await axios.delete(`https://task-management-b4ua.onrender.com/api/subtask/delete/${subtaskId}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
 

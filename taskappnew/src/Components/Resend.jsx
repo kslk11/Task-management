@@ -56,7 +56,7 @@ const Resend = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:7800/api/users/resend", { email });
+      const res = await axios.post("https://task-management-b4ua.onrender.com/api/users/resend", { email });
 
       if (res.status === 200) {
         setOtpSent(true);
@@ -91,7 +91,7 @@ const Resend = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:7800/api/users/fp", {
+      const res = await axios.post("https://task-management-b4ua.onrender.com/api/users/fp", {
         email,
         password,
         otp

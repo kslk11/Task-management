@@ -335,7 +335,7 @@ const Giver = () => {
     // --- Fetch User Theme ---
     const getUserTheme = async () => {
         try {
-            const res = await axios.get("http://localhost:7800/api/users/getOne", {
+            const res = await axios.get("https://task-management-b4ua.onrender.com/api/users/getOne", {
                 headers: { Authorization: `Bearer ${token}` },
             });
             const userTheme = res.data.theme || "light";
@@ -407,7 +407,7 @@ const Giver = () => {
     // --- Data Fetching ---
     const fetchUsers = async () => {
         try {
-            const res = await axios.get("http://localhost:7800/api/users/getAll", {
+            const res = await axios.get("https://task-management-b4ua.onrender.com/api/users/getAll", {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setUsers(res.data || []);
@@ -418,7 +418,7 @@ const Giver = () => {
 
     const fetchTasks = async () => {
         try {
-            const res = await axios.get("http://localhost:7800/api/task/assignedbyme", {
+            const res = await axios.get("https://task-management-b4ua.onrender.com/api/task/assignedbyme", {
                 headers: { Authorization: `Bearer ${token}` },
             });
             const grouped = {};
@@ -442,7 +442,7 @@ const Giver = () => {
 
     const fetchSubtasks = async (taskId) => {
         try {
-            const res = await axios.get(`http://localhost:7800/api/subtask/${taskId}`, {
+            const res = await axios.get(`https://task-management-b4ua.onrender.com/api/subtask/${taskId}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setSubtasks((prev) => ({ ...prev, [taskId]: res.data || [] }));
@@ -477,7 +477,7 @@ const Giver = () => {
 
         try {
             await axios.post(
-                "http://localhost:7800/api/task/newTask",
+                "https://task-management-b4ua.onrender.com/api/task/newTask",
                 { task: data.task, assignedTo: userId, deadline: data.deadline },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -503,7 +503,7 @@ const Giver = () => {
 
         try {
             await axios.post(
-                "http://localhost:7800/api/subtask/add",
+                "https://task-management-b4ua.onrender.com/api/subtask/add",
                 { parentTask: taskId, name: data.name, deadline: data.deadline },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -516,7 +516,7 @@ const Giver = () => {
 
     const deleteSubtask = async (id, taskId) => {
         try {
-            await axios.delete(`http://localhost:7800/api/subtask/delete/${id}`, {
+            await axios.delete(`https://task-management-b4ua.onrender.com/api/subtask/delete/${id}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             fetchSubtasks(taskId);
@@ -529,7 +529,7 @@ const Giver = () => {
     const updateSubtask = async (updatedSubtask) => {
         try {
             await axios.put(
-                `http://localhost:7800/api/subtask/update/${updatedSubtask._id}`,
+                `https://task-management-b4ua.onrender.com/api/subtask/update/${updatedSubtask._id}`,
                 {
                     name: updatedSubtask.name,
                     description: updatedSubtask.description,
@@ -555,7 +555,7 @@ const Giver = () => {
         try {
             const newStatus = current === "Pending" ? "Complete" : "Pending";
             await axios.post(
-                "http://localhost:7800/api/task/updateS",
+                "https://task-management-b4ua.onrender.com/api/task/updateS",
                 { taskId, status: newStatus },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -567,7 +567,7 @@ const Giver = () => {
 
     const deleteTask = async (taskId) => {
         try {
-            await axios.delete(`http://localhost:7800/api/task/delete/${taskId}`, {
+            await axios.delete(`https://task-management-b4ua.onrender.com/api/task/delete/${taskId}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             fetchTasks();
@@ -580,7 +580,7 @@ const Giver = () => {
     const updateTask = async (taskId) => {
         try {
             await axios.put(
-                `http://localhost:7800/api/task/taskUpdate/${taskId}`,
+                `https://task-management-b4ua.onrender.com/api/task/taskUpdate/${taskId}`,
                 {
                     task: editingTask.newName,
                     deadline: editingTask.newDeadline,
@@ -601,7 +601,7 @@ const Giver = () => {
 
         try {
             await axios.put(
-                `http://localhost:7800/api/subtask/update/${subtaskId}`,
+                `https://task-management-b4ua.onrender.com/api/subtask/update/${subtaskId}`,
                 {
                     name: editingSubtask.newName,
                     deadline: editingSubtask.newDeadline,
@@ -705,7 +705,7 @@ const Giver = () => {
             try {
 
                 await axios.put(
-                    `http://localhost:7800/api/task/updateAssignee`,
+                    `https://task-management-b4ua.onrender.com/api/task/updateAssignee`,
                     {
                         taskId: active.id,
                         newAssigneeId: toUser
@@ -768,7 +768,7 @@ const Giver = () => {
             try {
                 // NEW API CALL FOR EMAIL:
                 await axios.put(
-                    `http://localhost:7800/api/subtask/updateParent`, // Aapka naya route
+                    `https://task-management-b4ua.onrender.com/api/subtask/updateParent`, // Aapka naya route
                     {
                         subtaskId: active.id,   // Jo subtask move hua
                         newParentId: toTask     // Naya parent task

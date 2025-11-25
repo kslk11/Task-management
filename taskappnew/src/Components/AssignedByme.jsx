@@ -37,7 +37,7 @@ const AssignedByme = () => {
 
     const fetchUserTheme = async () => {
         try {
-            const res = await axios.get("http://localhost:7800/api/users/getOne", {
+            const res = await axios.get("https://task-management-b4ua.onrender.com/api/users/getOne", {
                 headers: { Authorization: `Bearer ${token}` },
             });
             if (res.data.themeColor) setThemeColor(res.data.themeColor);
@@ -48,7 +48,7 @@ const AssignedByme = () => {
 
     const fetchTasksByme = async () => {
         try {
-            const res = await axios.get("http://localhost:7800/api/task/assignedbyme", {
+            const res = await axios.get("https://task-management-b4ua.onrender.com/api/task/assignedbyme", {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setTasksbyme(res.data);
@@ -71,7 +71,7 @@ const AssignedByme = () => {
                 )
             );
             await axios.post(
-                "http://localhost:7800/api/task/updateS",
+                "https://task-management-b4ua.onrender.com/api/task/updateS",
                 { taskId, status: newStatus },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -92,7 +92,7 @@ const AssignedByme = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:7800/api/task/delete/${id}`, {
+            await axios.delete(`https://task-management-b4ua.onrender.com/api/task/delete/${id}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             fetchTasksByme();
@@ -120,7 +120,7 @@ const AssignedByme = () => {
         e.preventDefault();
         try {
             await axios.put(
-                `http://localhost:7800/api/task/taskUpdate/${editid}`,
+                `https://task-management-b4ua.onrender.com/api/task/taskUpdate/${editid}`,
                 { task: edittaskname, deadline: editdeadline },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -143,7 +143,7 @@ const AssignedByme = () => {
         e.preventDefault();
         try {
             await axios.post(
-                "http://localhost:7800/api/subtask/add",
+                "https://task-management-b4ua.onrender.com/api/subtask/add",
                 {
                     parentTask: parentTaskId,
                     name: subTaskName,
@@ -163,7 +163,7 @@ const AssignedByme = () => {
     const updateSubtaskStatus = async (subtaskId, newStatus) => {
         try {
             await axios.put(
-                `http://localhost:7800/api/subtask/update/${subtaskId}`,
+                `https://task-management-b4ua.onrender.com/api/subtask/update/${subtaskId}`,
                 { status: newStatus },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -175,7 +175,7 @@ const AssignedByme = () => {
 
     const deleteSubtask = async (subtaskId) => {
         try {
-            await axios.delete(`http://localhost:7800/api/subtask/delete/${subtaskId}`, {
+            await axios.delete(`https://task-management-b4ua.onrender.com/api/subtask/delete/${subtaskId}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             fetchTasksByme();
@@ -186,7 +186,7 @@ const AssignedByme = () => {
 
     const fetchSubtask = async (taskId) => {
         try {
-            const res = await axios.get(`http://localhost:7800/api/subtask/${taskId}`, {
+            const res = await axios.get(`https://task-management-b4ua.onrender.com/api/subtask/${taskId}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setShowsubtask(res.data);

@@ -59,7 +59,7 @@ const NewGiver = () => {
 
   const fetchAllUsers = async () => {
     try {
-      const res = await axios.get("http://localhost:7800/users/get", {
+      const res = await axios.get("https://task-management-b4ua.onrender.com/users/get", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setAllUsers(res.data.users || []);
@@ -71,7 +71,7 @@ const NewGiver = () => {
 
   const fetchAssignedTasks = async () => {
     try {
-      const assignTask = await axios.get("http://localhost:7800/task/assignedtome", {
+      const assignTask = await axios.get("https://task-management-b4ua.onrender.com/task/assignedtome", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setAssignByMe(assignTask.data || []);
@@ -102,7 +102,7 @@ const NewGiver = () => {
     }
     try {
       const res = await axios.post(
-        "http://localhost:7800/task/newTask",
+        "https://task-management-b4ua.onrender.com/task/newTask",
         {
           task: form.taskname,
           deadlineDate: form.deadLine,
@@ -124,7 +124,7 @@ const NewGiver = () => {
   };
   const showTaskDetails = async (id) => {
     try {
-      const res = await axios.get(`http://localhost:7800/task/getOne/${id}`, {
+      const res = await axios.get(`https://task-management-b4ua.onrender.com/task/getOne/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTaskDetail(res.data.task);
@@ -204,7 +204,7 @@ const NewGiver = () => {
   
   const showSubTaskData = async (taskid) => {
     try {
-      const res = await axios.get(`http://localhost:7800/sabTask/${taskid}`, {
+      const res = await axios.get(`https://task-management-b4ua.onrender.com/sabTask/${taskid}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setSubtaskData((prev) => ({
@@ -229,7 +229,7 @@ const NewGiver = () => {
 
   const deleteSubTask = async (subtask_id) => {
     try {
-      const res = await axios.delete(`http://localhost:7800/sabTask/delete/${subtask_id}`, {
+      const res = await axios.delete(`https://task-management-b4ua.onrender.com/sabTask/delete/${subtask_id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       toast.success(res.data.message || "Subtask deleted");
@@ -255,7 +255,7 @@ const NewGiver = () => {
     }
     try {
       const res = await axios.put(
-        `http://localhost:7800/sabTask/update/${editSubTaskId}`,
+        `https://task-management-b4ua.onrender.com/sabTask/update/${editSubTaskId}`,
         {
           subtaskName: subTaskForm.subTaskName,
           subTaskDesc: subTaskForm.subTaskDesc,

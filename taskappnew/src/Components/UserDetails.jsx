@@ -39,7 +39,7 @@ const UserDetails = () => {
     const getUser = async () => {
         try {
             setLoading(true);
-            const res = await axios.get("http://localhost:7800/api/users/getOne", {
+            const res = await axios.get("https://task-management-b4ua.onrender.com/api/users/getOne", {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setUser(res.data);
@@ -55,7 +55,7 @@ const UserDetails = () => {
             setDarkMode(mode === 'dark');
             localStorage.setItem("theme", mode);
             await axios.put(
-                "http://localhost:7800/api/users/updateTheme",
+                "https://task-management-b4ua.onrender.com/api/users/updateTheme",
                 { theme: mode },
                 { headers: { Authorization: `Bearer ${token}` } }
             );

@@ -43,7 +43,7 @@ const TaskPage = () => {
 
   const userTasks = async () => {
     try {
-      const res = await axios.get("http://localhost:7800/api/task/gta", {
+      const res = await axios.get("https://task-management-b4ua.onrender.com/api/task/gta", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTasksCount(res.data);
@@ -57,7 +57,7 @@ const TaskPage = () => {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get("http://localhost:7800/api/users/getAll", {
+      const res = await axios.get("https://task-management-b4ua.onrender.com/api/users/getAll", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUsers(res.data);
@@ -77,7 +77,7 @@ const TaskPage = () => {
     e.preventDefault();
     try {
       await axios.post(
-        "http://localhost:7800/api/task/createUser",
+        "https://task-management-b4ua.onrender.com/api/task/createUser",
         { ...formData },
         { headers: { Authorization: `Bearer ${token}` } }
       );

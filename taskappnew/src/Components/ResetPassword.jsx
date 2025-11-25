@@ -57,7 +57,7 @@ const ResetPassword = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:7800/api/users/reset-password", form);
+      const res = await axios.post("https://task-management-b4ua.onrender.com/api/users/reset-password", form);
       alert("✅ " + res.data.message);
       setTimeout(() => {
         navigate("/login");

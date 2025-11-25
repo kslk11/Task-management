@@ -59,7 +59,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:7800/api/users/login", {
+      const res = await axios.post("https://task-management-b4ua.onrender.com/api/users/login", {
         email,
         password,
         otp
@@ -97,7 +97,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:7800/api/users/resend", { email });
+      const res = await axios.post("https://task-management-b4ua.onrender.com/api/users/resend", { email });
 
       if (res.status === 200) {
         alert("✅ OTP sent successfully!");

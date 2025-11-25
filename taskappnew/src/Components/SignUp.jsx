@@ -59,7 +59,7 @@ const SignUp = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:7800/api/users/add", form);
+      const res = await axios.post("https://task-management-b4ua.onrender.com/api/users/add", form);
       alert("✅ Account created successfully! Please check your email for OTP.");
       console.log("User added:", res.data);
       setTimeout(() => {

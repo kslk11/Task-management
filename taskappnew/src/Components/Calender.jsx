@@ -57,7 +57,7 @@ const Calendar = () => {
 
   const fetchTasks = async () => {
     try {
-      const res = await axios.get("http://localhost:7800/api/task/assignedbyme", {
+      const res = await axios.get("https://task-management-b4ua.onrender.com/api/task/assignedbyme", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTasks(res.data || []);
@@ -68,7 +68,7 @@ const Calendar = () => {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get("http://localhost:7800/api/users/getAll", {
+      const res = await axios.get("https://task-management-b4ua.onrender.com/api/users/getAll", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUsers(res.data);
@@ -86,7 +86,7 @@ const Calendar = () => {
     e.preventDefault();
     try {
       await axios.post(
-        "http://localhost:7800/api/task/newTask",
+        "https://task-management-b4ua.onrender.com/api/task/newTask",
         { ...formData },
         { headers: { Authorization: `Bearer ${token}` } }
       );

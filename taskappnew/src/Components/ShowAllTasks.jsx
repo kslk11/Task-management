@@ -39,7 +39,7 @@ const ShowAllTasks = () => {
     const getAllTasks = async () => {
         try {
             setLoading(true);
-            const res = await axios.get(`http://localhost:7800/api/task/getOne/${id}`, {
+            const res = await axios.get(`https://task-management-b4ua.onrender.com/api/task/getOne/${id}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             const data = Array.isArray(res.data) ? res.data : [res.data];
@@ -54,7 +54,7 @@ const ShowAllTasks = () => {
     const updateStatus = async (taskId, newStatus) => {
         try {
             await axios.post(
-                `http://localhost:7800/api/task/updateS`,
+                `https://task-management-b4ua.onrender.com/api/task/updateS`,
                 { taskId, status: newStatus },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -67,7 +67,7 @@ const ShowAllTasks = () => {
     const updateSubtaskStatus = async (subtaskId, newStatus) => {
         try {
             await axios.put(
-                `http://localhost:7800/api/subtask/update/${subtaskId}`,
+                `https://task-management-b4ua.onrender.com/api/subtask/update/${subtaskId}`,
                 { status: newStatus },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -82,7 +82,7 @@ const ShowAllTasks = () => {
         if (!selectedStatus) return getAllTasks();
         try {
             const res = await axios.post(
-                `http://localhost:7800/api/task/sortBystatus/${id}`,
+                `https://task-management-b4ua.onrender.com/api/task/sortBystatus/${id}`,
                 { status: selectedStatus },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -105,7 +105,7 @@ const ShowAllTasks = () => {
         }
         try {
             const res = await axios.post(
-                `http://localhost:7800/api/task/sortByDate/${id}`,
+                `https://task-management-b4ua.onrender.com/api/task/sortByDate/${id}`,
                 { assignedDate, deadline },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -125,7 +125,7 @@ const ShowAllTasks = () => {
             return;
         }
         try {
-            const res = await axios.get(`http://localhost:7800/api/subtask/${taskId}`, {
+            const res = await axios.get(`https://task-management-b4ua.onrender.com/api/subtask/${taskId}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setOpenSubtasks((prev) => ({
